@@ -20,7 +20,7 @@ myApp.config(function($routeProvider, $locationProvider) {
     )
     .when('/info', {
       templateUrl: '/views/templates/info.html',
-      controller: 'InfoController'
+      controller: 'InfoController as info'
       }
     )
     .otherwise({

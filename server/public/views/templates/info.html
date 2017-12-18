@@ -1,6 +1,12 @@
 <div ng-include="'views/partials/nav.html'"></div>
 <div class="container">
-  <p>
-    In Info
-  </p>
+  <div class= "games" ng-repeat="games in info.testResult">
+      <div>
+          <ul>
+              <li>{{games.name}}</li>
+              <li>{{games.playtime_forever}}</li>
+              <li></li>
+              </ul>
+          </div>
+    </div>
 </div>
