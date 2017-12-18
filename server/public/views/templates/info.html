@@ -1,12 +1,18 @@
 <div ng-include="'views/partials/nav.html'"></div>
 <div class="container">
-  <div class= "games" ng-repeat="games in info.testResult">
-      <div>
-          <ul>
-              <li>{{games.name}}</li>
-              <li>{{games.playtime_forever}}</li>
-              <li></li>
-              </ul>
-          </div>
+    <div class="user" ng-repeat="user in info.user_result">
+        <div>
+            <p> SteamID:{{user.steamid}} Steam Persona: {{user.personaname}} </p>
+            <img src={{user.avatarfull}}>
+
+        </div>
+        <div class="games" ng-repeat="games in info.testResult">
+            <div>
+                <ul>
+                    <li>{{games.name}}</li> <img src="http://media.steampowered.com/steamcommunity/public/images/apps/{{games.appid}}/{{games.img_logo_url}}.jpg">
+                    <li>{{games.playtime_forever}}</li>
+                </ul>
+            </div>
+        </div>
     </div>
 </div>
