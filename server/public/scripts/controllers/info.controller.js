@@ -1,5 +1,5 @@
-myApp.controller('InfoController', function(UserService) {
+myApp.controller('InfoController', function() {
   console.log('InfoController created');
   var vm = this;
-  vm.userService = UserService;
+
 });

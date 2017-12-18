@@ -3,13 +3,7 @@ var router = express.Router();
 var passport = require('passport');
 var path = require('path');
 
-// Handles login form POST from index.html
-router.post('/',
-    passport.authenticate('local', { // local strategy - userStrategy.js
-        // request stays within node/express and is routed as a new request
-        successRedirect: '/user'   // goes to routes/user.js
-    })
-);
+
 
 // Handle index file separately
 // Also catches any other request not explicitly matched elsewhere

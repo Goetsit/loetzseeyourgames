@@ -3,7 +3,7 @@
 * pg-pool configuration to Heroku.
 * It will look something like this:
 **/
-
+/*
 var pg = require('mssql');
 var url = require('url');
 var config = {};
@@ -37,4 +37,27 @@ if (process.env.DATABASE_URL) {
   };
 }
 
+
+
 module.exports = new pg.ConnectionPool(config);
+
+*/
+/*
+var mysql = require('mysql');
+var connection = mysql.createConnection({
+    host: 'localhost',
+    database: 'loetzgames'
+});
+
+connection.connect();
+
+connection.query('SELECT * from < table name >', function (err, rows, fields) {
+    if (!err)
+        console.log('The solution is: ', rows);
+    else
+        console.log('Error while performing Query.');
+});
+
+connection.end();
+
+*/

@@ -1,8 +1,20 @@
 var express = require('express');
 var router = express.Router();
 var path = require('path');
-var pool = require('../modules/pool.js');
 var encryptLib = require('../modules/encryption');
+
+var mssql = require('mssql');
+
+
+var conn = new mssql.ConnectionPool({
+    database: "loetzgames",
+    server: "DESKTOP-OP688V3\SQLEXPRESS",
+    options: {
+        trustedConnection: true
+    }
+});
+
+
 
 // Handles request for HTML file
 router.get('/', function(req, res, next) {
@@ -19,12 +31,12 @@ router.post('/', function(req, res, next) {
   };
   console.log('new user:', saveUser);
 
-  pool.connect(function(err, client, done) {
+  conn.connect(function(err, client, done) {
     if(err) {
       console.log("Error connecting: ", err);
       res.sendStatus(500);
     }
-    client.query("INSERT INTO users (username, password) VALUES ($1, $2) RETURNING id",
+    sql.query("INSERT INTO users (username, password) VALUES ($1, $2) RETURNING id",
       [saveUser.username, saveUser.password],
         function (err, result) {
           client.end();
