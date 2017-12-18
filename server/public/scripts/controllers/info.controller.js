@@ -7,34 +7,6 @@ myApp.controller('InfoController', function($http) {
   var user_result = [];
 
 
- /*
-  vm.firstTest = function () {
-
-      $http.get('http://api.steampowered.com/IPlayerService/GetOwnedGames/v0001/?key=502CF7AD2FE8F1911591043E913B519D&steamid=76561198096885956&include_appinfo=1&format=json').then(function (response) {
-
-          vm.testResult = response.data.response.games;
-
-      });
-  }
-
-  vm.firstTest();
-
- */
-
-
-
-  vm.userTest = function () {
-
-      $http.get(' http://api.steampowered.com/ISteamUser/GetPlayerSummaries/v0002/?key=502CF7AD2FE8F1911591043E913B519D&steamids=76561198096885956').then(function (response) {
-
-          vm.user_result = response.data.response.players;
-
-      });
-  }
-
-  vm.userTest();
-
-
   vm.findGames = function (steamid) {
       console.log('steamid', steamid);
      
@@ -42,6 +14,13 @@ myApp.controller('InfoController', function($http) {
       $http.get('http://api.steampowered.com/IPlayerService/GetOwnedGames/v0001/?key=' + api_key + '&steamid=' + steamid + '&include_appinfo=1&format=json').then(function (response) {
 
           vm.testResult = response.data.response.games;
+
+
+          $http.get('http://api.steampowered.com/ISteamUser/GetPlayerSummaries/v0002/?key=' + api_key + '&steamids=' + steamid).then(function (response) {
+
+              vm.user_result = response.data.response.players;
+
+          });
 
       });
   }

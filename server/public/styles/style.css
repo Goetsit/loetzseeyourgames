@@ -11,8 +11,6 @@ body, html {
 }
 
 .instructions {
-  background-color: #333333;
-  color: #DDDDDD;
   padding: 15px;
 }
 
@@ -87,4 +85,9 @@ margin: 5px;
 .games {
     background-color: skyblue;
     margin: 5px;
+}
+
+#lp {
+    height: 150px;
+    width: 150px;
 }
