@@ -1,20 +1,24 @@
 <div ng-include="'views/partials/nav.html'"></div>
 <div class="container">
-    <form ng-submit="info.findGames(info.steam_id)">
+    Don't know a Steam ID?
+    Go  <a href="https://steamidfinder.com/">here</a>
+    <form ng-submit="info.findGames(info.steam_id, info.their_steam_id)">
         <div>
             <label for="id">Your SteamID:</label>
             <input type="text" ng-model="info.steam_id" />
+            <label for="id">Their SteamID:</label>
+            <input type="text" ng-model="info.their_steam_id" />
             <input class="btn btn-default" type="submit" name="submit" value="Search" />
         </div>
     </form>
-        <div class="user" ng-repeat="user in info.user_result">
+        <div class="user_first" ng-repeat="user in info.user_result">
             <div>
                 <img src={{user.avatarfull}}>
                 <p> SteamID:{{user.steamid}} Steam Persona: {{user.personaname}} </p>
 
             </div>
         </div>
-        <div class="games" ng-repeat="games in info.testResult">
+        <div class="games_first" ng-repeat="games in info.testResult">
             <div>
                 <ul>
                     <li>{{games.name}}</li>
@@ -23,5 +27,21 @@
                 </ul>
             </div>
         </div>
+    <div class="user_other" ng-repeat="user_other in info.user_result_other">
+        <div>
+            <img src={{user_other.avatarfull}}>
+            <p> SteamID:{{user_other.steamid}} Steam Persona: {{user_other.personaname}} </p>
+
+        </div>
+    </div>
+    <div class="games_other" ng-repeat="games_other in info.testResult_other">
+        <div>
+            <ul>
+                <li>{{games_other.name}}</li>
+                <img src="http://media.steampowered.com/steamcommunity/public/images/apps/{{games_other.appid}}/{{games_other.img_logo_url}}.jpg">
+                <li>{{games_other.playtime_forever}}</li>
+            </ul>
+        </div>
+    </div>
 
 </div>
