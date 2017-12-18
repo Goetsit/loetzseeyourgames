@@ -1,18 +1,27 @@
 <div ng-include="'views/partials/nav.html'"></div>
 <div class="container">
-    <div class="user" ng-repeat="user in info.user_result">
+    <form ng-submit="info.findGames()">
         <div>
-            <p> SteamID:{{user.steamid}} Steam Persona: {{user.personaname}} </p>
-            <img src={{user.avatarfull}}>
+            <label for="id">SteamID:</label>
+            <input type="text" ng-model="info.steam_id" />
+            <input class="btn btn-default" type="submit" name="submit" value="Search" />
+        </div>
+    </form>
+        <div class="user" ng-repeat="user in info.user_result">
+            <div>
+                <img src={{user.avatarfull}}>
+                <p> SteamID:{{user.steamid}} Steam Persona: {{user.personaname}} </p>
 
+            </div>
         </div>
         <div class="games" ng-repeat="games in info.testResult">
             <div>
                 <ul>
-                    <li>{{games.name}}</li> <img src="http://media.steampowered.com/steamcommunity/public/images/apps/{{games.appid}}/{{games.img_logo_url}}.jpg">
+                    <li>{{games.name}}</li>
+                    <img src="http://media.steampowered.com/steamcommunity/public/images/apps/{{games.appid}}/{{games.img_logo_url}}.jpg">
                     <li>{{games.playtime_forever}}</li>
                 </ul>
             </div>
         </div>
-    </div>
+
 </div>

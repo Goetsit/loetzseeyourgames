@@ -78,3 +78,13 @@ li a:hover {
   text-decoration: underline;
   color: #eee;
 }
+
+.user {
+background-color: pink;
+margin: 5px;
+}
+
+.games {
+    background-color: skyblue;
+    margin: 5px;
+}
