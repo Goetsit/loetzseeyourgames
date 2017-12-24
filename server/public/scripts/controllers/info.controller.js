@@ -39,6 +39,11 @@ myApp.controller('InfoController', function($http) {
               vm.their_steam_id = '';
           });
 
-      });
+      });      
   }
+
+
 });
+
+
+
