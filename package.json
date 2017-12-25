@@ -10,6 +10,7 @@
   "author": "Scott Bromander, Kris Szafranski",
   "license": "ISC",
   "dependencies": {
+    "@angular/material": "^5.0.2",
     "@types/mssql": "^4.0.6",
     "angular": "^1.6.6",
     "angular-route": "^1.6.6",

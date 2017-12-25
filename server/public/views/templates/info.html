@@ -11,7 +11,7 @@
             <input class="btn btn-default" type="submit" name="submit" value="Search" />
         </div>
     </form>
-    
+   <div id= "users">
         <div class="user_first" ng-repeat="user in info.user_result">
             <div>
                 <img src={{user.avatarfull}}>
@@ -26,6 +26,7 @@
             <p> SteamID:{{user_other.steamid}} Steam Persona: {{user_other.personaname}} </p>
 
         </div>
+    </div>  
     </div>
 
         <div class="games_first" ng-repeat="games in info.finalResult track by $index">
@@ -37,18 +38,4 @@
                 </ul>
             </div>
         </div>
-    
-   
-    <!--
-    <div class="games_other" ng-repeat="games_other in info.testResult_other">
-        <div>
-            <ul>
-                <li>{{games_other.name}}</li>
-                <img src="http://media.steampowered.com/steamcommunity/public/images/apps/{{games_other.appid}}/{{games_other.img_logo_url}}.jpg">
-                <li>{{games_other.playtime_forever}}</li>
-            </ul>
-        </div>
-    </div>
-    -->
-
 </div>
