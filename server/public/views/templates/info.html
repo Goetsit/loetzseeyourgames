@@ -19,7 +19,16 @@
 
             </div>
         </div>
-        <div class="games_first" ng-repeat="games in info.finalResult">
+
+    <div class="user_other" ng-repeat="user_other in info.user_result_other">
+        <div>
+            <img src={{user_other.avatarfull}}>
+            <p> SteamID:{{user_other.steamid}} Steam Persona: {{user_other.personaname}} </p>
+
+        </div>
+    </div>
+
+        <div class="games_first" ng-repeat="games in info.finalResult track by $index">
             <div>
                 <ul>
                     <li>{{games.name}}</li>
@@ -28,14 +37,9 @@
                 </ul>
             </div>
         </div>
+    
+   
     <!--
-    <div class="user_other" ng-repeat="user_other in info.user_result_other">
-        <div>
-            <img src={{user_other.avatarfull}}>
-            <p> SteamID:{{user_other.steamid}} Steam Persona: {{user_other.personaname}} </p>
-
-        </div>
-    </div>
     <div class="games_other" ng-repeat="games_other in info.testResult_other">
         <div>
             <ul>
