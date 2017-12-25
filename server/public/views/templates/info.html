@@ -11,6 +11,7 @@
             <input class="btn btn-default" type="submit" name="submit" value="Search" />
         </div>
     </form>
+    
         <div class="user_first" ng-repeat="user in info.user_result">
             <div>
                 <img src={{user.avatarfull}}>
@@ -18,7 +19,7 @@
 
             </div>
         </div>
-        <div class="games_first" ng-repeat="games in info.testResult">
+        <div class="games_first" ng-repeat="games in info.finalResult">
             <div>
                 <ul>
                     <li>{{games.name}}</li>
@@ -27,6 +28,7 @@
                 </ul>
             </div>
         </div>
+    <!--
     <div class="user_other" ng-repeat="user_other in info.user_result_other">
         <div>
             <img src={{user_other.avatarfull}}>
@@ -43,5 +45,6 @@
             </ul>
         </div>
     </div>
+    -->
 
 </div>

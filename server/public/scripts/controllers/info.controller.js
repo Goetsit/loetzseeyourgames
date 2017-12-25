@@ -7,17 +7,18 @@ myApp.controller('InfoController', function($http) {
   var testResult_other = [];
   var user_result = [];
   var user_result_other = [];
-
+  var finalResult = [];
+  
     
 
   vm.findGames = function (steamid, otherid) {
       console.log('steamid', steamid);
       console.log('theirid', otherid);
-     
 
       $http.get('http://api.steampowered.com/IPlayerService/GetOwnedGames/v0001/?key=' + api_key + '&steamid=' + steamid + '&include_appinfo=1&format=json').then(function (response) {
 
           vm.testResult = response.data.response.games;
+
 
 
           $http.get('http://api.steampowered.com/ISteamUser/GetPlayerSummaries/v0002/?key=' + api_key + '&steamids=' + steamid).then(function (response) {
@@ -39,8 +40,21 @@ myApp.controller('InfoController', function($http) {
               vm.their_steam_id = '';
           });
 
-      });      
+      }).then(function () {
+          var final = [];
+         for (var i = 0; i < vm.testResult.length - 1; i += 1) {
+              //console.log(vm.testResult[i].name, 'first array indexed');
+              for (var ii = 0; ii < vm.testResult_other.length - 1; ii += 1) {
+                  if (vm.testResult[i].name == vm.testResult_other[ii].name) {
+                      final.push(vm.testResult[i]);
+                      vm.finalResult = final;
+                  } 
+              }
+          } 
+      });
+
   }
+
 
 
 });
