@@ -2,39 +2,66 @@
 <div class="container">
     Don't know a Steam ID?
     Go  <a href="https://steamidfinder.com/">here</a>
-    <form ng-submit="info.findGames(info.steam_id, info.their_steam_id)">
+    
+    <form ng-submit="info.findGames(info.steam_id, info.second_steam_id, info.third_steam_id, info.fourth_steam_id)">
         <div>
-            <label for="id">Your SteamID:</label>
+            <label for="id">First SteamID:</label>
             <input type="text" ng-model="info.steam_id" />
-            <label for="id">Their SteamID:</label>
-            <input type="text" ng-model="info.their_steam_id" />
-            <input class="btn btn-default" type="submit" name="submit" value="Search" />
+            <label for="id">Second SteamID:</label>
+            <input type="text" ng-model="info.second_steam_id" />
+            <label for="id">Third SteamID:</label>
+            <input type="text" ng-model="info.third_steam_id" />
+            <label for="id">Fourth SteamID:</label>
+            <input type="text" ng-model="info.fourth_steam_id" />
+            <input class="btn btn-default" type="submit" name="submit" value="Find Users" />
         </div>
     </form>
    <div id= "users">
-        <div class="user_first" ng-repeat="user in info.user_result">
+        <div class="user user_first" ng-repeat="user in info.firstUser">
             <div>
                 <img src={{user.avatarfull}}>
-                <p> SteamID:{{user.steamid}} Steam Persona: {{user.personaname}} </p>
+                <p> <strong>SteamID: </strong>{{user.steamid}}<br>
+                    <strong>Steam Persona: </strong> {{user.personaname}}
+                </p>
 
             </div>
         </div>
 
-    <div class="user_other" ng-repeat="user_other in info.user_result_other">
+    <div class="user user_other" ng-repeat="secondUser in info.secondUser">
         <div>
-            <img src={{user_other.avatarfull}}>
-            <p> SteamID:{{user_other.steamid}} Steam Persona: {{user_other.personaname}} </p>
+            <img src={{secondUser.avatarfull}}>
+            <p> <strong>SteamID: </strong>{{secondUser.steamid}}<br> 
+            <strong>Steam Persona: </strong> {{secondUser.personaname}}
+            </p>
 
         </div>
     </div>  
-    </div>
+       <div class="user user_other" ng-repeat="thirdUser in info.thirdUser">
+           <div>
+               <img src={{thirdUser.avatarfull}}>
+               <p> <strong>SteamID:</strong> {{thirdUser.steamid}} 
+                   <strong>Steam Persona:</strong> {{thirdUser.personaname}}
+                </p>
 
+           </div>
+       </div>  
+       <div class="user user_other" ng-repeat="fourthUser in info.fourthUser">
+           <div>
+               <img src={{fourthUser.avatarfull}}>
+               <p> <strong>SteamID:</strong> {{fourthUser.steamid}} 
+               <strong>Steam Persona:</strong> {{fourthUser.personaname}}
+               </p>
+
+           </div>
+       </div>  
+    </div>
+    <button class="btn btn-default" ng-click="info.compareGames()">Compare Games</button>
+    <h1>{{info.message}}</h>
         <div class="games_first" ng-repeat="games in info.finalResult track by $index">
             <div>
                 <ul>
                     <li>{{games.name}}</li>
                     <img src="http://media.steampowered.com/steamcommunity/public/images/apps/{{games.appid}}/{{games.img_logo_url}}.jpg">
-                    <li>{{games.playtime_forever}}</li>
                 </ul>
             </div>
         </div>

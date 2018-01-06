@@ -3,6 +3,7 @@ myApp.service('UserService', function($http, $location){
   var self = this;
   self.userObject = {};
 
+
   self.getuser = function(){
     console.log('UserService -- getuser');
     $http.get('/user').then(function(response) {
@@ -28,4 +29,6 @@ myApp.service('UserService', function($http, $location){
       $location.path("/home");
     });
   }
+
+    
 });
