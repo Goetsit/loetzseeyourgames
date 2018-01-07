@@ -6,63 +6,66 @@
     <form ng-submit="info.findGames(info.steam_id, info.second_steam_id, info.third_steam_id, info.fourth_steam_id)">
         <div>
             <label for="id">First SteamID:</label>
-            <input type="text" ng-model="info.steam_id" />
+            <input type="text" ng-model="info.steam_id" /> 
             <label for="id">Second SteamID:</label>
-            <input type="text" ng-model="info.second_steam_id" />
+            <input type="text" ng-model="info.second_steam_id" /> 
             <label for="id">Third SteamID:</label>
-            <input type="text" ng-model="info.third_steam_id" />
+            <input type="text" ng-model="info.third_steam_id" /> 
             <label for="id">Fourth SteamID:</label>
-            <input type="text" ng-model="info.fourth_steam_id" />
+            <input type="text" ng-model="info.fourth_steam_id" /> <br>
             <input class="btn btn-default" type="submit" name="submit" value="Find Users" />
+            <button class="btn btn-default" ng-click="info.compareGames()">Compare Games</button>
         </div>
     </form>
+   
    <div id= "users">
         <div class="user user_first" ng-repeat="user in info.firstUser">
             <div>
                 <img src={{user.avatarfull}}>
-                <p> <strong>SteamID: </strong>{{user.steamid}}<br>
-                    <strong>Steam Persona: </strong> {{user.personaname}}
+                <p> 
+                <h2> {{user.personaname}} </h2> 
+                <strong>SteamID: </strong>{{user.steamid}}
+                    
                 </p>
 
             </div>
         </div>
 
-    <div class="user user_other" ng-repeat="secondUser in info.secondUser">
+    <div class="user user_second" ng-repeat="secondUser in info.secondUser">
         <div>
             <img src={{secondUser.avatarfull}}>
-            <p> <strong>SteamID: </strong>{{secondUser.steamid}}<br> 
-            <strong>Steam Persona: </strong> {{secondUser.personaname}}
+            <p> 
+            <h2>{{secondUser.personaname}} </h2> 
+             <strong>SteamID: </strong>{{secondUser.steamid}}
             </p>
 
         </div>
     </div>  
-       <div class="user user_other" ng-repeat="thirdUser in info.thirdUser">
+       <div class="user user_third" ng-repeat="thirdUser in info.thirdUser">
            <div>
                <img src={{thirdUser.avatarfull}}>
-               <p> <strong>SteamID:</strong> {{thirdUser.steamid}} <br>
-                   <strong>Steam Persona:</strong> {{thirdUser.personaname}}
+               <p> 
+                  <h2> {{thirdUser.personaname}}</h2> 
+                   <strong>SteamID:</strong> {{thirdUser.steamid}} 
                 </p>
 
            </div>
        </div>  
-       <div class="user user_other" ng-repeat="fourthUser in info.fourthUser">
+       <div class="user user_fourth" ng-repeat="fourthUser in info.fourthUser">
            <div>
                <img src={{fourthUser.avatarfull}}>
-               <p> <strong>SteamID:</strong> {{fourthUser.steamid}} <br>
-               <strong>Steam Persona:</strong> {{fourthUser.personaname}}
-               </p>
+               <p> 
+              <h2>  {{fourthUser.personaname}} </h2>
+              <strong>SteamID:</strong> {{fourthUser.steamid}} 
 
            </div>
        </div>  
     </div>
-    <button class="btn btn-default" ng-click="info.compareGames()">Compare Games</button>
-    <h1>{{info.message}}</h>
+   
+    <h1>{{info.message}}</h1>
         <div class="games_first" ng-repeat="games in info.finalResult track by $index">
-            <div>
-                <ul>
-                    <li>{{games.name}}</li>
-                    <img src="http://media.steampowered.com/steamcommunity/public/images/apps/{{games.appid}}/{{games.img_logo_url}}.jpg">
-                </ul>
-            </div>
-        </div>
+                   <img src="http://media.steampowered.com/steamcommunity/public/images/apps/{{games.appid}}/{{games.img_logo_url}}.jpg">
+                   <h2 class="gameTitle"> {{games.name}} </h2>
+                    
+    </div>
 </div>

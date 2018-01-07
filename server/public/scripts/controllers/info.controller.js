@@ -43,8 +43,6 @@ myApp.controller('InfoController', function (UserService, $http) {
                 vm.secondGames = response.data.response.games;
                 vm.stage += 1;
 
-                console.log(vm.secondGames);
-
                 $http.get('http://api.steampowered.com/ISteamUser/GetPlayerSummaries/v0002/?key=' + api_key + '&steamids=' + otherId).then(function (response) {
 
                     vm.secondUser = response.data.response.players;
@@ -90,7 +88,6 @@ myApp.controller('InfoController', function (UserService, $http) {
     
    
     vm.compareGames = function () {
-        console.log(vm.stage);
 
         switch (vm.stage) {
             case 0:

@@ -94,16 +94,47 @@ li a:hover {
 
 #users {
     box-shadow: 0 9px 12px 0 #8BE8A0, 0 17px 50px 0 rgba(0,0,0,0.19);
-    margin: 15px;
     padding: 5px;
+    width: 50%;
+    margin: 0 auto;
 }
+
+.user_first {
+    text-align: center;
+    padding: 5px;
+    width: 50%;
+    margin: 0 auto;
+}
+
+.user_second {
+    text-align: center;
+    padding: 5px;
+    width: 50%;
+    margin: 0 auto;
+}
+
+.user_third {
+    text-align: center;
+    padding: 5px;
+    width: 50%;
+    margin: 0 auto;
+}
+
+.user_fourth {
+    text-align: center;
+    padding: 5px;
+    width: 50%;
+    margin: 0 auto;
+}
+
 
 .games_first {
     box-shadow: 0 9px 12px 0 #7B00A8, 0 17px 50px 0 rgba(0,0,0,0.19);
-    margin: 15px;
-    padding: 5px;
+    width: 50%;
+    margin: 0 auto;
+    text-align: center;
+    padding-top: 20px;
 }
-
 
 
 
@@ -118,6 +149,7 @@ li a:hover {
     transition: background-color .45s;
     border-radius: 15px;
     border-color: #949494;
+    margin: 5px;
 }
 
     .btn:hover {
@@ -129,7 +161,17 @@ li a:hover {
     }
 
 
-
 .user {
-margin: 5px;
+    width: 50%;
+    margin: 0 auto;
 }
+
+.gameTitle {
+    padding-bottom: 10px;
+    margin-top: 0%;
+}
+
+a {
+    color: #8BE8A0;
+}
+
